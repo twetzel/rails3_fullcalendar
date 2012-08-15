@@ -20,6 +20,14 @@ Fullcalendar is a great ajaxy calendar... there are several examples on that pag
 
     the src-path is softlinked in vendor/assets/javascripts and vendor/assets/stylesheets .. so you can use it directly
 
+#### Usage:
+
+    git clone git://github.com/twetzel/rails3_fullcalendar.git
+    cd rails3_fullcalendar/
+    bundle install
+    bundle exec rake db:migrate
+    rails s
+
 ***
 In order to simplify communication between the fullcalendar and the rails application that is actually serving up the events to put on the calendar, The app is using the [jquery.REST plugin](https://github.com/lyconic/jquery.rest) .. see this [post](http://lyconic.com/blog/2010/08/03/dry-up-your-ajax-code-with-the-jquery-rest-plugin)
 
