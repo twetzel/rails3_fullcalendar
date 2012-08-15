@@ -69,9 +69,11 @@ $ ->
 			month: "Monat"
 			week: "Woche"
 			day: "Tag"
+		axisFormat: 'H:mm'
 		defaultView: 'month'
-		height: 500
-		slotMinutes: 15
+		# height: 500
+		# slotMinutes: 15
+		slotMinutes: 30
 		loading: (bool) ->
 			if bool
 				$('#loading').show()
