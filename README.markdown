@@ -1,9 +1,17 @@
 ## Rails3 fullcalendar example
 
 This is an example application showing how to use the JQuery FullCalendar plugin with Rails3, following RESTful rails practices as closely as possible, and forgoing 'cleverness' for clarity.
+[Homepage](http://arshaw.com/fullcalendar/) | [DOKU](http://arshaw.com/fullcalendar/docs/) | [Source](https://github.com/arshaw/fullcalendar)
 
-http://arshaw.com/fullcalendar/
+#### Usage:
 
+    git clone git://github.com/twetzel/rails3_fullcalendar.git
+    cd rails3_fullcalendar/
+    bundle install
+    bundle exec rake db:migrate
+    rails s
+
+***
 Fullcalendar is a great ajaxy calendar... there are several examples on that page, and downloadable with the project.  Integration with rails is not overly complicated, but a sample project that can be dissected is really helpful in getting all the moving parts worked out.  This project will eventually include detailed instructions of how it came together, and I might even record a screencast on it.  Until then, notable things:
 
 *This app uses:*
@@ -19,14 +27,6 @@ Fullcalendar is a great ajaxy calendar... there are several examples on that pag
 * [jarnokurlin](https://github.com/jarnokurlin/fullcalendar) .. includes resources & several resource-views
 
     the src-path is softlinked in vendor/assets/javascripts and vendor/assets/stylesheets .. so you can use it directly
-
-#### Usage:
-
-    git clone git://github.com/twetzel/rails3_fullcalendar.git
-    cd rails3_fullcalendar/
-    bundle install
-    bundle exec rake db:migrate
-    rails s
 
 ***
 In order to simplify communication between the fullcalendar and the rails application that is actually serving up the events to put on the calendar, The app is using the [jquery.REST plugin](https://github.com/lyconic/jquery.rest) .. see this [post](http://lyconic.com/blog/2010/08/03/dry-up-your-ajax-code-with-the-jquery-rest-plugin)
