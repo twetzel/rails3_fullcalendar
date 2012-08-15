@@ -14,19 +14,21 @@ This is an example application showing how to use the JQuery FullCalendar plugin
 ***
 Fullcalendar is a great ajaxy calendar... there are several examples on that page, and downloadable with the project.  Integration with rails is not overly complicated, but a sample project that can be dissected is really helpful in getting all the moving parts worked out.  This project will eventually include detailed instructions of how it came together, and I might even record a screencast on it.  Until then, notable things:
 
-*This app uses:*
+**This app uses:**
 * Rails 3.2.8 (but every version above 3.1 should work fine!)
 * jquery-rails & jquery-ui-rails .. (as gems)
 * coffeescript version off [rails3_fullcalendar](https://github.com/bokmann/rails3_fullcalendar) start script plus create action
 * different fullCalender sources are bundled with sprockets
 
-*Several sources included in vendor/assets/src:*
+**Several fullCalendar sources included in *vendor/assets/src*:**
 * [arshaw](https://github.com/arshaw/fullcalendar) .. the original
 * [AbleTech](https://github.com/arshaw/fullcalendar) .. includes resources & resourceDay-view
 * [buero-fuer-ideen](https://github.com/buero-fuer-ideen/fullcalendar) .. includes resources & resourceDay-view
 * [jarnokurlin](https://github.com/jarnokurlin/fullcalendar) .. includes resources & several resource-views
 
-    the src-path is softlinked in vendor/assets/javascripts and vendor/assets/stylesheets .. so you can use it directly
+the src-path is softlinked in vendor/assets/javascripts and vendor/assets/stylesheets .. so you can use it directly.
+
+for more details about the diffrent versions, please have a look at [issue 490](http://code.google.com/p/fullcalendar/issues/detail?id=490)
 
 ***
 In order to simplify communication between the fullcalendar and the rails application that is actually serving up the events to put on the calendar, The app is using the [jquery.REST plugin](https://github.com/lyconic/jquery.rest) .. see this [post](http://lyconic.com/blog/2010/08/03/dry-up-your-ajax-code-with-the-jquery-rest-plugin)
