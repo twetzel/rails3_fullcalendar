@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Stuff::Application.load_tasks
+Calendar::Application.load_tasks
