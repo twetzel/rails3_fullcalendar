@@ -1,0 +1,23 @@
+<%= javascript_include_tag "fullcalendar_#{ @calender_type }" %>
+<% that_name = CalendarController::SOURCES[ @calender_type ] %>
+
+<div id="headline">
+    <div class="box heading">
+        <h1><%= that_name %><%= raw(" <em>(original)</em>") if @calender_type == 'arshaw' %></h1>
+    </div>
+    <div class="box source">
+        <%= link_to "#{ that_name } @ Github", "https://github.com/#{ that_name }/fullcalendar", :target => '_blank' %>
+    </div>
+    <div class="box links">
+        <%= link_to "new event", new_event_path, :class => "actionlink" %>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+
+
+
+
+
+<div id='calendar'></div>
+

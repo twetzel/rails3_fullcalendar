@@ -15,9 +15,9 @@
 //= require jquery.ui.all
 //= require jquery.rest
 //= require_self
-//= require fullcalendar
+# require fullcalendar
 # require gcal
-//= require calendar
+# require calendar
 
 $.ajaxSetup
 	beforeSend: (xhr) ->

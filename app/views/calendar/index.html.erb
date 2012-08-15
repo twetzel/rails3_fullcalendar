@@ -1,4 +1,40 @@
-<%= link_to "new event", new_event_path %>
+<div id="headline">
+    <div class="box heading">
+        <h1>Overview <em>(what´s new)</em></h1>
+    </div>
+    <div class="box source">
+        &uarr; please choose a calendar type &uarr;
+    </div>
+    <div class="box links">
+        <%= link_to "source @ Github", "https://github.com/twetzel/rails3_fullcalendar", :target => '_blank', :class => "actionlink" %>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
 
-<div id='calendar'></div>
+
+<div id='info_box'>
+    <h2>Improvement:</h2>
+    <ul>
+        <li>update Rails to 3.2.8</li>
+        <li>update jquery.rest</li>
+        <li>include fullCalendar form Source (vendor/assets/src/:repo) via AssetPipeline</li>
+        <li>now u can create events by select an range / day</li>
+    </ul>
+    <br/>
+    <h2>included sources:</h2>
+    <p>
+        please have a look at <%= link_to "issue 490", "http://code.google.com/p/fullcalendar/issues/detail?id=490", :target => '_blank' %>, 
+        for more details about the diffrent versions.<br/>
+        For generall instructions use the <%= link_to "fullcalender doku", "http://arshaw.com/fullcalendar/docs/", :target => '_blank' %>
+    </p>
+    <table class="full">
+        <% CalendarController::SOURCES.each do |k,v| %>
+            <tr>
+                <th><%= link_to "#{v}", "https://github.com/#{ v }" %></th>
+                <td><%= link_to "https://github.com/#{ v }/fullcalendar", "https://github.com/#{ v }/fullcalendar" %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
 

@@ -10,8 +10,22 @@
   
 </head>
 <body>
+    <ul id="main_nav">
+        <% CalendarController::SOURCES.each do |k,v| %>
+            <li>
+                <%#= link_to "#{v} - Calendar", calendar_path(k), :class => "#{'active' if @calender_type && @calender_type == k}" %>
+                <%= link_to raw("Calender [<em>#{v}</em>]"), calendar_path(k), :class => "#{'active' if @calender_type && @calender_type == k}" %>
+            </li>
+        <% end %>
+        <li><%= link_to 'Events', events_path, :class => "#{'active' if controller_name == 'events'}" %></li>
+    </ul>
+    <div class="clearfix"></div>
 
 <%= yield %>
+
+<div id="footer">
+    changed 2012 by <%= link_to "twetzel", "https://github.com/twetzel/rails3_fullcalendar", :target => '_blank' %>
+</div>
 
 </body>
 </html>
