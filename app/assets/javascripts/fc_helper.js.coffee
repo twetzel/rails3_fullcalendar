@@ -42,6 +42,7 @@
 			)
 		else
 			alert "Not enough data! .. please provide a title!"
+		false
 
 
 	@createResourceEvent = (title, start, end, allday, resource) ->
@@ -64,6 +65,7 @@
 			)
 		else
 			alert "Not enough data! .. please provide a title!"
+		false
 
 
 	@getErrorMessages = (msg_obj) ->
@@ -175,10 +177,16 @@
 		else
 			$('#personresource').val( "" )
 		#$('#personresource').val( if event.resource then event.resource else if event.resourceId then event.resourceId else '')
-		$('#event_dialog').dialog('open')
+		if event.id and event.id != ''
+			$('.deleteDialogButton').show()
+			$('#event_dialog').dialog('open').dialog({ title: "Edit Event - <em>#{event.title}</em>" })
+		else
+			$('.deleteDialogButton').hide()
+			$('#event_dialog').dialog('open').dialog({ title: "New Event" })
+		
 
 
-	@saveEventFromDialog= ->
+	@saveEventFromDialog = ->
 		allDay = $('#all_day').is(':checked')
 		event = {}
 		event.id = $('#event_id').val()
@@ -198,4 +206,12 @@
 			createResourceEvent(event.title, event.start, event.end, event.allday, event.resource)
 
 
+	@deleteEventFromDialog = ->
+		$.destroy( 
+			"/events/#{$('#event_id').val()}"
+			(response) ->
+				$('#calendar').fullCalendar('refetchEvents')
+				$('#calendar').fullCalendar('rerenderEvents')
+		)
+		daDialog.dialog('close')
 )(window)

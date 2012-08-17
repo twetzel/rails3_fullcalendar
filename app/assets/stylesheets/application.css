@@ -199,3 +199,16 @@ input[type="submit"]:hover {
 	width: 347px;
 	border: solid 1px #ccc;
 }
+
+.ui-dialog-buttonset {
+	float: none !important;
+}
+
+.ui-dialog-buttonset .ui-button {
+	float:right;
+}
+
+.ui-dialog-buttonset .ui-button.deleteDialogButton {
+	float:left;
+	margin: 0.4em 0px 0.5em 0.5em;
+}
