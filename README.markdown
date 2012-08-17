@@ -3,12 +3,15 @@
 This is an example application showing how to use the JQuery FullCalendar plugin with Rails3, following RESTful rails practices as closely as possible, and forgoing 'cleverness' for clarity.
 [Homepage](http://arshaw.com/fullcalendar/) | [DOKU](http://arshaw.com/fullcalendar/docs/) | [Source](https://github.com/arshaw/fullcalendar)
 
+This app compares 4 Versions of fullcallender to show how they can handle resources (people).
+
 #### Usage:
 
     git clone git://github.com/twetzel/rails3_fullcalendar.git
     cd rails3_fullcalendar/
     bundle install
     bundle exec rake db:migrate
+    bundle exec rake db:seed .. if you want sample data
     rails s
 
 ***
@@ -43,3 +46,5 @@ There will eventually be branches that support recurring events as well as multi
 ### More:
 This is just an updated (and slightly improved) version of [David Bock`s rails3_fullcalendar](https://github.com/bokmann/rails3_fullcalendar).
 His project was inspired by an earlier attempt to do the same thing.  https://github.com/vinsol/fullcalendar_rails demonstrates an older calendar integrations with Rails2; however it doesn't live up to Rails' RESTful ideals, and complicates the example with other uses of ajax and a more complex domain model to support recurring events.  It is still a useful project, and kudos to vinsol for sharing it; it definitely made this Rails3 version easier
+
+Some JS-Code is addopted from [Victor Tatai´s fork](https://github.com/vtatai/rails3_fullcalendar).

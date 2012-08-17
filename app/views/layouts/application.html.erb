@@ -7,6 +7,13 @@
   <%= csrf_meta_tag %>  
   
   <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
+  <script>
+    var all_peoples = $.ajax({
+		url: "/people",
+		type: "GET",
+		dataType: "json"
+	})
+  </script>
   
 </head>
 <body>
@@ -18,12 +25,17 @@
             </li>
         <% end %>
         <li><%= link_to 'Events', events_path, :class => "#{'active' if controller_name == 'events'}" %></li>
+        <li><%= link_to 'People', people_path, :class => "#{'active' if controller_name == 'people'}" %></li>
     </ul>
     <div class="clearfix"></div>
 
 <%= yield %>
 
 <div id="footer">
+    <em>
+        example app to compare different versions of <%= link_to "Adam Shaw´s fullCalender", "http://arshaw.com/fullcalendar/", :target => '_blank' %> with focus on multiuser functionality 
+    </em>
+    <br/><br/>
     changed 2012 by <%= link_to "twetzel", "https://github.com/twetzel/rails3_fullcalendar", :target => '_blank' %>
 </div>
 

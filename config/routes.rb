@@ -1,5 +1,7 @@
 Calendar::Application.routes.draw do
   
+  resources :people
+
   resources :events
 
   # => get "calendar/index"

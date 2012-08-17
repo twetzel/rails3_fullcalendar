@@ -1,12 +1,12 @@
 <div id="headline">
     <div class="box heading">
-        <h1>Editing event "<%= @event.title %>"</h1>
+        <h1>New person</h1>
     </div>
     <div class="box source">
         &nbsp;
     </div>
     <div class="box links">
-        <%= link_to "new Event", new_event_path, :class => "actionlink" %>
+        <%= link_to "back", root_path, :class => "actionlink" %>
     </div>
     <div class="clearfix"></div>
 </div>
@@ -14,5 +14,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', people_path %>

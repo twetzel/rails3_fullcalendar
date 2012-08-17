@@ -1,0 +1,51 @@
+<div id="headline">
+    <div class="box heading">
+        <h1><%= @person.full_name %></h1>
+    </div>
+    <div class="box source">
+        &nbsp;
+    </div>
+    <div class="box links">
+        <%= link_to 'Back', people_path, :class => "actionlink" %>
+        <%= link_to 'edit Person', edit_person_path(@person), :class => "actionlink" %>
+        <%= link_to "new Person", new_person_path, :class => "actionlink" %>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+
+<p id="notice"><%= notice %></p>
+
+<div id='info_box'>
+  <table class="form">
+    <tr>
+        <th>Sex:</th>
+        <td><%= @person.sex %></td>
+    </tr>
+    <tr>
+        <th>Name:</th>
+        <td><%= @person.name %></td>
+    </tr>
+    <tr>
+        <th>First Name:</th>
+        <td><%= @person.first_name %></td>
+    </tr>
+    <tr>
+        <th>Background-Color:</th>
+        <td style="background:<%= @person.bg_color %>; color:<%= @person.txt_color %>"><%= @person.bg_color %></td>
+    </tr>
+    <tr>
+        <th>Text-Color:</th>
+        <td style="background:<%= @person.bg_color %>; color:<%= @person.txt_color %>"><%= @person.txt_color %></td>
+    </tr>
+    <tr>
+        <th>Events:</th>
+        <td><%= @person.events.count %></td>
+    </tr>
+  </table>
+</div>
+
+
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>

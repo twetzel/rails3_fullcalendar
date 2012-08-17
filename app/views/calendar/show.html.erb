@@ -9,7 +9,8 @@
         <%= link_to "#{ that_name } @ Github", "https://github.com/#{ that_name }/fullcalendar", :target => '_blank' %>
     </div>
     <div class="box links">
-        <%= link_to "new event", new_event_path, :class => "actionlink" %>
+        <%= link_to "new Event", new_event_path, :class => "actionlink" %> | 
+        <%= link_to "new Person", new_person_path, :class => "actionlink" %>
     </div>
     <div class="clearfix"></div>
 </div>
@@ -21,3 +22,4 @@
 
 <div id='calendar'></div>
 
+<%= render "dialog" %>

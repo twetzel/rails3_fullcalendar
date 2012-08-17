@@ -1,0 +1,41 @@
+<div id='event_dialog' style="display:none;">
+    <table class="form">
+        <tr>
+            <th>Title:</th>
+            <td><input type="text" id="what"/></td>
+        </tr>
+        <tr>
+            <th>Details</th>
+            <td><input type="text" id="description"/></td>
+        </tr>
+        
+        <tr>
+            <th>Person</th>
+            <td>
+                <select id="personresource">
+                    <option value="" selected> - - - </option>
+                    <% Person.all.each do |person| %>
+                    <option value="<%= person.id %>"><%= person.full_name %></option>
+                    <% end %>
+                </select>
+            </td>
+        </tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        
+        <tr>
+            <th>All day</th>
+            <td><input type="checkbox" id="all_day"/></td>
+        </tr>
+        <tr>
+            <th>Start</th>
+            <td><input type="text" id="start_date" class="timefields" /><input type="text" id="start_time" class="timefields" /></td>
+        </tr>
+        <tr>
+            <th>End</th>
+            <td><input type="text" id="end_date" class="timefields" /><input type="text" id="end_time" class="timefields" /></td>
+        </tr>
+    </table>
+
+  <input type="hidden" id="event_id"/>
+
+</div>

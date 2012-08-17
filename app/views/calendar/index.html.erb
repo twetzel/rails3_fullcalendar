@@ -3,7 +3,7 @@
         <h1>Overview <em>(what´s new)</em></h1>
     </div>
     <div class="box source">
-        &uarr; please choose a calendar type &uarr;
+        &uarr;&nbsp;&nbsp;&nbsp;choose a calendar type&nbsp;&nbsp;&nbsp;&uarr;
     </div>
     <div class="box links">
         <%= link_to "source @ Github", "https://github.com/twetzel/rails3_fullcalendar", :target => '_blank', :class => "actionlink" %>
@@ -36,5 +36,19 @@
             </tr>
         <% end %>
     </table>
+    <br/>
+    <h2>History:</h2>
+    <ul>
+        <li>this app is just an updated (and slightly improved) version of <%= link_to "David Bock`s rails3_fullcalendar", "https://github.com/bokmann/rails3_fullcalendar", :target => '_blank' %></li>
+        <li>I also added some Dialog-behavior like <%= link_to "Victor Tatai", "http://tatai.com.br/", :target => '_blank' %> did in his <%= link_to "fork", "https://github.com/vtatai/rails3_fullcalendar", :target => '_blank' %></li>
+        <li>there is also the 'first' version of this <%= link_to "app by vinsol", "https://github.com/vinsol/fullcalendar_rails", :target => '_blank' %> .. but that is Rails 2.3.x</li>
+    </ul>
+    <br/>
+    <h2>Requirements:</h2>
+    <ul>
+        <li><%= link_to "Adam Shaw´s xDate Plugin", "http://arshaw.com/xdate/", :target => '_blank' %> .. for sexy Date-Formats</li>
+        <li><%= link_to "Lyconic´s jquery.rest Plugin", "https://github.com/lyconic/jquery.rest", :target => '_blank' %> .. for Rails-Style Ajax-Requests</li>
+        <li><%= link_to "jquery-rails", "https://github.com/rails/jquery-rails", :target => '_blank' %> &amp; <%= link_to "jquery-ui-rails", "https://github.com/joliss/jquery-ui-rails", :target => '_blank' %> .. included in Gemfile</li>
+    </ul>
 </div>
-
+<%= link_to "", "", :target => '_blank' %>

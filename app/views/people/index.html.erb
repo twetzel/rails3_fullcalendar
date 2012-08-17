@@ -1,0 +1,40 @@
+<div id="headline">
+    <div class="box heading">
+        <h1>Listing people</h1>
+    </div>
+    <div class="box source">
+        &nbsp;
+    </div>
+    <div class="box links">
+        <%= link_to "new Person", new_person_path, :class => "actionlink" %>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+
+<table class="full">
+  <tr>
+    <th>Full-Name</th>
+    <th>Sex</th>
+    <th>Name</th>
+    <th>First name</th>
+    <th>Bg color</th>
+    <th>Txt color</th>
+    <th></th>
+  </tr>
+
+<% @people.each do |person| %>
+  <tr style="background:<%= person.bg_color %>; color:<%= person.txt_color %>">
+    <td><%= person.full_name %></td>
+    <td><%= person.sex %></td>
+    <td><%= person.name %></td>
+    <td><%= person.first_name %></td>
+    <td><%= Event::BG_COLORS.index(person.bg_color) || person.bg_color %></td>
+    <td><%= Event::TXT_COLORS.index(person.txt_color) || person.txt_color %></td>
+    <td class="actions"><%= link_to 'Show', person %> | <%= link_to 'Edit', edit_person_path(person) %> | <%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

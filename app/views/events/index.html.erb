@@ -6,7 +6,7 @@
         &nbsp;
     </div>
     <div class="box links">
-        <%= link_to "new event", new_event_path, :class => "actionlink" %>
+        <%= link_to "new Event", new_event_path, :class => "actionlink" %>
     </div>
     <div class="clearfix"></div>
 </div>
@@ -19,7 +19,7 @@
     <th>Starts at</th>
     <th>Ends at</th>
     <th>All day</th>
-    <th>Description</th>
+    <th>Owner</th>
     <th></th>
   </tr>
 
@@ -29,7 +29,7 @@
     <td><%= event.starts_at %></td>
     <td><%= event.ends_at %></td>
     <td><%= event.all_day %></td>
-    <td><%= event.description %></td>
+    <td><%= event.person ? event.person.full_name : " - - - " %></td>
     <td class="actions"><%= link_to 'Show', event %> | <%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
