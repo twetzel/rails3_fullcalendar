@@ -11,7 +11,8 @@
 					starts_at: "#{the_event.start}"
 					ends_at: "#{the_event.end}"
 					description: the_event.description
-					person_id: if the_event.resource then the_event.resource else null
+					# a bit confusing, but AbleTech-version sends full resource
+					person_id: if the_event.resource.id then the_event.resource.id else if the_event.resource then the_event.resource else null
 				(reponse) ->
 					console?.log? "updated event '#{reponse.title}'."
 					if rerender
