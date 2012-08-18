@@ -204,6 +204,7 @@
 			updateEvent(event, true)
 		else
 			createResourceEvent(event.title, event.start, event.end, event.allday, event.resource)
+		$('#calendar').fullCalendar( 'unselect' )
 
 
 	@deleteEventFromDialog = ->

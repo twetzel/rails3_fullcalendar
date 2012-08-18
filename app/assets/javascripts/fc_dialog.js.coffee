@@ -28,28 +28,24 @@
 					console?.log? "daDialog => clicked 'Save'"
 					saveEventFromDialog()
 			]
-			open: ->
-				# without unbind fires enter for every previous opened dialog ( first = 1, second = 2, and so on)
-				daDialog.unbind('keyup')
-				# catch enter on dialog .. maybe move in on-function
-				daDialog.keyup (e) ->
-					if e.keyCode is $.ui.keyCode.ENTER
-						console?.log? "daDialog => hit 'Enter'"
-						saveEventFromDialog()
-						false
-				#$('.ui-dialog input').keyup (e) ->
-				#	alert "Enter key was pressed."  if e.keyCode is 13
 
 
-		$('#all_day').change ->
+
+
+		$.datepicker.setDefaults({ dateFormat: 'd.m.yy' })
+		$('#start_date').datepicker()
+		$('#end_date').datepicker()
+		
+		$("#event_dialog").on 'change', '#all_day', (e) ->
 			checked = $(@).is(':checked')
 			if checked
 				disableDialogTimeFields()
 			else
 				enableDialogTimeFields()
-
-		$.datepicker.setDefaults({ dateFormat: 'd.m.yy' })
-		$('#start_date').datepicker()
-		$('#end_date').datepicker()
+		
+		$("#event_dialog").on 'keyup', 'input', (e) ->
+			if e.keyCode is $.ui.keyCode.ENTER
+						console?.log? "daDialog => hit 'Enter'"
+						saveEventFromDialog()
 
 )(jQuery, window, document)
