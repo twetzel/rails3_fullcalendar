@@ -21,7 +21,7 @@
         <% CalendarController::SOURCES.each do |k,v| %>
             <li>
                 <%#= link_to "#{v} - Calendar", calendar_path(k), :class => "#{'active' if @calender_type && @calender_type == k}" %>
-                <%= link_to raw("Calender [<em>#{v}</em>]"), calendar_path(k), :class => "#{'active' if @calender_type && @calender_type == k}" %>
+                <%= link_to raw("Calender [<em>#{k}</em>]"), calendar_path(k), :class => "#{'active' if @calender_type && @calender_type == k}" %>
             </li>
         <% end %>
         <li><%= link_to 'Events', events_path, :class => "#{'active' if controller_name == 'events'}" %></li>

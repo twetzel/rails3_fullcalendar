@@ -24,13 +24,17 @@
   </tr>
 
 <% @people.each do |person| %>
-  <tr style="background:<%= person.bg_color %>; color:<%= person.txt_color %>">
+  <tr>
     <td><%= person.full_name %></td>
     <td><%= person.sex %></td>
     <td><%= person.name %></td>
     <td><%= person.first_name %></td>
-    <td><%= Event::BG_COLORS.index(person.bg_color) || person.bg_color %></td>
-    <td><%= Event::TXT_COLORS.index(person.txt_color) || person.txt_color %></td>
+    <td style="background:<%= person.bg_color %>; color:<%= person.txt_color %>">
+        <%= Event::BG_COLORS.index(person.bg_color) || person.bg_color %>
+    </td>
+    <td style="background:<%= person.bg_color %>; color:<%= person.txt_color %>">
+        <%= Event::TXT_COLORS.index(person.txt_color) || person.txt_color %>
+    </td>
     <td class="actions"><%= link_to 'Show', person %> | <%= link_to 'Edit', edit_person_path(person) %> | <%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

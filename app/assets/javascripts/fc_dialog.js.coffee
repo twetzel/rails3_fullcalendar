@@ -28,8 +28,13 @@
 					console?.log? "daDialog => clicked 'Save'"
 					saveEventFromDialog()
 			]
-
-
+		
+		window.gCalDialog = $('#gcal_dialog').dialog
+			title: 'gCal'
+			autoOpen: false
+			width: 555
+			buttons: 
+				'Close': -> $(@).dialog('close')
 
 
 		$.datepicker.setDefaults({ dateFormat: 'd.m.yy' })

@@ -23,8 +23,10 @@ body {
 	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
 }
 table.full { width: 90%; margin: 0 auto; }
-table.full th, table.full td { text-align: left; padding: 0 10px;}
+table.full th, table.full td { text-align: left; padding: 3px 10px;}
 table.full td.actions { text-align: right; }
+table.full tr:nth-child(even) { background: #f3f2f2; }
+/* table.full tr:nth-child(odd){color:green} */
 
 table.form { display: block; }
 table.form th, table.form td { text-align: left; padding: 5px;}
@@ -89,8 +91,14 @@ input[type="submit"]:hover {
 #info_box { width: 50%; margin: 0 auto; text-align: left; }
 
 #calendar {
-	width: 90%;
+	width: 88%;
+	padding: 1%;
 	margin: 0 auto;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #fff;
+	border: solid 1px #ccc;
 	}
 
 #main_nav {
@@ -211,4 +219,28 @@ input[type="submit"]:hover {
 .ui-dialog-buttonset .ui-button.deleteDialogButton {
 	float:left;
 	margin: 0.4em 0px 0.5em 0.5em;
+}
+
+.fc-event.de_holiday { position: relative; }
+.fc-event.de_holiday div { text-indent: 15px; }
+
+.fc-event.de_holiday .fc-event-title:before {
+	display: block;
+	content:"g";
+	position: absolute;
+	left: -13px;
+	top: 0;
+	font-weight: bold;
+	color: #999;
+	font-size: 13px;
+	line-height: 12px;
+}
+
+.fc-event.event.unsinged {
+    border: dotted 1px #666;
+}
+
+.fc-event.event.unsinged .fc-event-inner {
+    background: #fff url("back.png") !important;
+    color: #555;
 }

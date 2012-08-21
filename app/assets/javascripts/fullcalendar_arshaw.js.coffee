@@ -25,7 +25,7 @@
 //= require src/arshaw/common/HoverListener
 //= require src/arshaw/common/HorizontalPositionCache
 #
-# require src/arshaw/gcal/gcal
+//= require src/twetzel/gcal/gcal
 #
 //= require xdate
 //= require fc_defaults
@@ -49,7 +49,13 @@ options =
 	eventResize: (event, dayDelta, minuteDelta, revertFunc) -> updateEvent(event)
 	# http://arshaw.com/fullcalendar/docs/mouse/eventClick/
 	eventClick: (event, jsEvent, view) ->
-		openTheDialog(event)
+		console?.log? "*** Event clicked #{event.title}"
+		console?.log? event
+		console?.log? "*** /Event"
+		if event.source and event.source.dataType and event.source.dataType == "gcal"
+			openGCalDialog(event)
+		else
+			openTheDialog(event)
 		false
 #
 # => load fullCalender (default_options get merged) .. person-resource are loaded in layout

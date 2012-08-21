@@ -30,7 +30,7 @@
 //= require src/buero-fuer-ideen/common/HoverListener
 //= require src/buero-fuer-ideen/common/HorizontalPositionCache
 #
-# require src/arshaw/gcal/gcal
+//= require src/twetzel/gcal/gcal
 #
 //= require xdate
 //= require fc_defaults
@@ -65,7 +65,12 @@ options =
 	# http://arshaw.com/fullcalendar/docs/event_ui/eventResize/
 	eventResize: (event, dayDelta, minuteDelta, revertFunc) -> updateEvent(event)
 	# http://arshaw.com/fullcalendar/docs/mouse/eventClick/
-	eventClick: (event, jsEvent, view) -> # => would like a lightbox here.
+	eventClick: (event, jsEvent, view) ->
+		if event.source and event.source.dataType and event.source.dataType == "gcal"
+			openGCalDialog(event)
+		else
+			openTheDialog(event)
+		false
 #
 # => load fullCalender (default_options get merged) .. person-resource are loaded in layout
 #

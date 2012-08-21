@@ -30,7 +30,7 @@
 //= require src/AbleTech/common/HoverListener
 //= require src/AbleTech/common/HorizontalPositionCache
 #
-# require src/arshaw/gcal/gcal
+//= require src/twetzel/gcal/gcal
 #
 //= require xdate
 //= require fc_defaults
@@ -41,6 +41,9 @@
 # => individual options for fullCalendar
 #
 options =
+  # resourceDay
+  allDayText: 'all-day'
+  
 	defaultView: 'month'
 	header:
 		left: 'prev,next today'
@@ -65,7 +68,10 @@ options =
 	eventResize: (event, dayDelta, minuteDelta, revertFunc) -> updateEvent(event)
 	# http://arshaw.com/fullcalendar/docs/mouse/eventClick/
 	eventClick: (event, jsEvent, view) ->
-		openTheDialog(event)
+		if event.source and event.source.dataType and event.source.dataType == "gcal"
+			openGCalDialog(event)
+		else
+			openTheDialog(event)
 		false
 #
 # => load fullCalender (default_options get merged) .. person-resource are loaded in layout

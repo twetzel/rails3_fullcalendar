@@ -6,8 +6,11 @@ class CalendarController < ApplicationController
   SOURCES = { 
     "arshaw" => "arshaw",
     "abletech" => "AbleTech",
-    "buerofuerideen" => "buero-fuer-ideen",
-    "jarnokurlin" => "jarnokurlin"
+    # => "buerofuerideen" => "buero-fuer-ideen",
+    "jarnokurlin" => "jarnokurlin",
+    "twetzel" => "twetzel",
+    "atwork" => "twetzel"
+    # "twetzel_coffee" => "twetzel"
     }
   
   def index

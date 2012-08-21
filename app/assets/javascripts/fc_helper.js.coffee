@@ -183,7 +183,16 @@
 		else
 			$('.deleteDialogButton').hide()
 			$('#event_dialog').dialog('open').dialog({ title: "New Event" })
-		
+
+
+	@openGCalDialog = (event) ->
+		$('#gcal_head').html( event.title )
+		$('#gcal_date').html( $.fullCalendar.formatDate( event.start, "dddd d.MMMM yyyy", fc_local_times ) )
+		if event.gcalendar and event.gcalendar != ''
+			gcal_title = "<em>gCal:</em> #{event.gcalendar}"
+		else
+			gcal_title = "<em>googleCalendar</em> - Holidays"
+		gCalDialog.dialog('open').dialog({ title: gcal_title })
 
 
 	@saveEventFromDialog = ->
