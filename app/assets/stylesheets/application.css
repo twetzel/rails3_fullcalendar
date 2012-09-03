@@ -99,7 +99,44 @@ input[type="submit"]:hover {
 	border-radius: 5px;
 	background: #fff;
 	border: solid 1px #ccc;
-	}
+}
+#calendar.with_aside {
+	width: 70%;
+	float: right;
+	margin: 0 5% 0 0;
+}
+
+#external-events {
+	width: 15%;
+	float: left;
+	margin: 0 0 0 5%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #fff;
+	border: solid 1px #ccc;
+}
+#external-events .external-event {
+	display: block;
+	margin: 0 10px 5px;
+	padding: 5px 20px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: solid 1px #ccc;
+	text-align: left;
+}
+#external-events h4 {
+	padding: 10px;
+	margin: 0 5px 10px;
+	border-bottom: solid 1px #ccc;
+}
+#external-events p {
+	padding: 10px;
+	margin: 10px 5px 10px;
+	border-top: solid 1px #ccc;
+	text-align: left;
+}
 
 #main_nav {
 	width: 90%;

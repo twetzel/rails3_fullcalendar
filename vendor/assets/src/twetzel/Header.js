@@ -23,14 +23,16 @@ function Header(calendar, options) {
 		tm = options.theme ? 'ui' : 'fc';
 		var sections = options.header;
 		if (sections) {
-			element = $("<table class='fc-header' style='width:100%'/>")
+			element = $("<table class='fc-header xyz' style='width:100%'/>")
 				.append(
 					$("<tr/>")
 						.append(renderSection('left'))
 						.append(renderSection('center'))
 						.append(renderSection('right'))
 				);
-			return element;
+			var wrapped_el = $('<div class="fc_headline" />').append( element );
+			// return element;
+			return wrapped_el;
 		}
 	}
 	

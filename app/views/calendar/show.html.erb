@@ -18,8 +18,21 @@
 
 
 
+<div id='external-events'>
+    <h4>Draggable Events</h4>
+    <% Person.all.each_with_index do |psn, i| %>
+        <div class='external-event' data-employee='<%= psn.id %>' style="background:<%= psn.bg_color %>; color:<%= psn.txt_color %>"><%= "#{psn.first_name}´s Task" %></div>
+    <% end %>
+    <p>
+        <input type='checkbox' id='drop-remove' /> <label for='drop-remove'>remove after drop</label><br/><br/>
+        <input type='checkbox' id='drop-correction' /> <label for='drop-correction'>ask for correction</label><br/><br/>
+        <input type='checkbox' id='drop-resourced' /> <label for='drop-resourced'>by resource</label><br/><br/>
+    </p>
+</div>
 
+<div id='calendar' class="with_aside"></div>
 
-<div id='calendar'></div>
+<div class="clearfix"></div>
+
 
 <%= render "dialog" %>

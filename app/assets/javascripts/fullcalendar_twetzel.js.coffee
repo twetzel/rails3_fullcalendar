@@ -75,5 +75,22 @@ options =
 $ ->
 	$('#calendar').fullCalendar( mergeOptions(options) )
 
+	$('#external-events .external-event').each ->
+		# create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+		# it doesn't need to have a start or end
+		eventObject =
+			title: $.trim($(@).text()), # use the element's text as the event title
+			resourceId: parseInt($(@).attr('data-employee'))
 
+		# store the Event Object in the DOM element so we can get to it later
+		#$(@).data('eventObject', eventObject)
+		$(@).attr( 'data-eventObject', JSON.stringify( eventObject ) )
+		$(@).attr( 'data-title', $.trim($(@).text()) )
+		$(@).attr( 'data-resource', parseInt($(@).attr('data-employee')) )
+
+		$(@).draggable(
+			zIndex: 2999
+			revert: true, # will cause the event to go back to its
+			revertDuration: 0 #  original position after the drag
+		)
 

@@ -316,8 +316,10 @@ function AgendaView(element, calendar, viewName) {
 			headCell.html(formatDate(date, colFormat));
 			bodyCell = dayBodyCells.eq(i);
 			if (+date == +today) {
+				headCell.addClass('fc-today');
 				bodyCell.addClass(tm + '-state-highlight fc-today');
 			}else{
+				headCell.removeClass('fc-today');
 				bodyCell.removeClass(tm + '-state-highlight fc-today');
 			}
 			setDayID(headCell.add(bodyCell), date);

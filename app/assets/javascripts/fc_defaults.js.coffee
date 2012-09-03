@@ -90,6 +90,37 @@
 			agendaWorkWeek: 'Arbeitswoche'
 		axisFormat: 'H:mm'
 
+		droppable: true, # this allows things to be dropped onto the calendar !!!
+		drop: (date, allDay, ev, ui, res) -> # this function is called when something is dropped
+			console?.log? $(@).attr("data-eventObject")
+			console?.log? date
+			console?.log? allDay
+			console?.log? res
+			console?.log? "- - -"
+			# retrieve the dropped element's stored Event Object
+			originalEventObject = jQuery.parseJSON( $(@).attr('data-eventObject') )
+			# we need to copy it, so that multiple events don't have a reference to the same object
+			copiedEventObject = $.extend({}, originalEventObject)
+			#copiedEventObject = {}
+			#copiedEventObject.title = $(@).attr('data-title')
+			#copiedEventObject.resourceId = $(@).attr('data-resource')
+			# assign it the date that was reported
+			copiedEventObject.start = date
+			copiedEventObject.allDay = allDay
+			# dropped event of resource a to a cell belonging to resource b?
+			if res && (res.id != copiedEventObject.resourceId)
+				if $('#drop-correction').is(':checked')
+					console?.log? "'#{res.id}' != '#{copiedEventObject.resourceId}'"
+					if !confirm('Wrong column. Do you want me to correct that?')
+						copiedEventObject.resourceId = res.id
+				else if !$('#drop-resourced').is(':checked')
+					copiedEventObject.resourceId = res.id
+			#$('#calendar').fullCalendar('renderEvent', copiedEventObject, true)
+			createResourceEvent(copiedEventObject.title, copiedEventObject.start, copiedEventObject.start, copiedEventObject.allday, copiedEventObject.resourceId)
+			# is the "remove after drop" checkbox checked?
+			#$(@).remove()
+
+
 
 	@mergeOptions = ( options ) ->
 		$.extend({}, default_fc_options, options);
