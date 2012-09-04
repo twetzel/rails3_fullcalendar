@@ -86,8 +86,8 @@
 			month: "Monat"
 			week: "Woche"
 			day: "Tag"
-			resourceDay: 'Resourcen'
-			agendaWorkWeek: 'Arbeitswoche'
+			resourceDay: 'R-Day'
+			agendaWorkWeek: 'workweek'
 		axisFormat: 'H:mm'
 
 		droppable: true, # this allows things to be dropped onto the calendar !!!

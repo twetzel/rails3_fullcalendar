@@ -13,7 +13,8 @@ setDefaults({
 		agenda: .5
 	},
 	minTime: 0,
-	maxTime: 24
+	maxTime: 24,
+	oneDayHead: true
 });
 
 
@@ -176,13 +177,13 @@ function AgendaView(element, calendar, viewName) {
 			"<table style='width:100%' class='fc-agenda-days fc-border-separate' cellspacing='0'>" +
 			"<thead>" +
 			"<tr>" +
-			"<th class='fc-agenda-axis " + headerClass + "'>&nbsp;</th>";
+			"<th class='fc-agenda-axis " + headerClass + "'> </th>";
 		for (i=0; i<colCnt; i++) {
 			s +=
 				"<th class='fc- fc-col" + i + ' ' + headerClass + "'/>"; // fc- needed for setDayID
 		}
 		s +=
-			"<th class='fc-agenda-gutter " + headerClass + "'>&nbsp;</th>" +
+			"<th class='fc-agenda-gutter " + headerClass + "'> </th>" +
 			"</tr>" +
 			"</thead>" +
 			"<tbody>" +
@@ -313,7 +314,9 @@ function AgendaView(element, calendar, viewName) {
 		for (i=0; i<colCnt; i++) {
 			date = colDate(i);
 			headCell = dayHeadCells.eq(i);
-			headCell.html(formatDate(date, colFormat));
+			if ( (colCnt > 1) || (opt('oneDayHead') == true) ) {
+				headCell.html('<div class="head_cell_date">'+ formatDate(date, colFormat) +'</div>');
+			}
 			bodyCell = dayBodyCells.eq(i);
 			if (+date == +today) {
 				headCell.addClass('fc-today');

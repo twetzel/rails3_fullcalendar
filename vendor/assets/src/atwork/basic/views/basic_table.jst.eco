@@ -1,0 +1,29 @@
+<% c_cnt = [0..(@colCnt - 1)] %>
+<% r_cnt = [0..(@maxRowCnt - 1)] %>
+<table class='fc-border-separate' style='width:100%' cellspacing='0'>
+	<thead>
+		<tr>
+			<% for i in c_cnt: %>
+				<th class='fc- <%= @headerClass %>'></th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<% for i in r_cnt: %>
+			<tr class='fc-week<%= i %>'>
+				<% for j in c_cnt: %>
+					<td class='fc- <%= @contentClass %> fc-day<%= (i * @colCnt + j ) %> fc_day_cell'>
+						<div class="fc-basic-day-cell">
+							<% if @showNumbers: %>
+								<div class='fc-day-number' data-row="<%= i + 1 %>"></div>
+							<% end %>
+							<div class='fc-day-content'>
+								<div style='position:relative'>&nbsp;</div>
+							</div>
+						</div>
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

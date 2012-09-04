@@ -1,0 +1,28 @@
+<% that_cnt = [0..(@colCnt - 1)] %>
+<table style='width:100%' class='fc-agenda-days fc-border-separate' cellspacing='0'>
+	<thead>
+		<tr>
+			<th class='fc-agenda-axis <%= @headerClass %>'> </th>
+			<% for i in that_cnt: %>
+				<th class='fc- fc-col<%= i %> <%= @headerClass %>'/>
+			<% end %>
+			<th class='fc-agenda-gutter <%= @headerClass %>'> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th class='fc-agenda-axis <%= @headerClass %>'>&nbsp;</th>
+			<% for i in that_cnt: %>
+				<td class='fc- fc-col<%= i %> <%= @contentClass %>'>
+					<div>
+						<div class='fc-day-content'>
+							<div style='position:relative'>&nbsp;</div>
+						</div>
+					</div>
+				</td>
+			<% end %>
+			<td class='fc-agenda-gutter <%= @contentClass %>'>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+

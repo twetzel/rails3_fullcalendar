@@ -46,7 +46,7 @@ Calendar::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( fullcalendar_abletech.js fullcalendar_arshaw.js fullcalendar_atwork.js fullcalendar_buerofuerideen.js fullcalendar_jarnokurlin.js fullcalendar_twetzel.js fullcalendar_blank.js )
+  config.assets.precompile += %w( fullcalendar_abletech.js fullcalendar_arshaw.js fullcalendar_atwork.js fullcalendar_buerofuerideen.js fullcalendar_jarnokurlin.js fullcalendar_twetzel.js fullcalendar_blank.js fc_styles/abletech.css fc_styles/arshaw.css fc_styles/atwork.css fc_styles/buerofuerideen.css fc_styles/jarnokurlin.css fc_styles/twetzel.css )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

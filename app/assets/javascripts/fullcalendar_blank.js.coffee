@@ -12,6 +12,9 @@
 //= require src/twetzel/basic/BasicView
 //= require src/twetzel/basic/BasicEventRenderer
 #
+//= require src/twetzel/agenda/AgendaWorkWeekView
+//= require src/twetzel/agenda/AgendaThreeDayView
+#
 //= require src/twetzel/agenda/AgendaWeekView
 //= require src/twetzel/agenda/AgendaDayView
 //= require src/twetzel/agenda/AgendaView

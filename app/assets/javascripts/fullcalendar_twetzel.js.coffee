@@ -12,6 +12,9 @@
 //= require src/twetzel/basic/BasicView
 //= require src/twetzel/basic/BasicEventRenderer
 #
+//= require src/twetzel/agenda/AgendaWorkWeekView
+//= require src/twetzel/agenda/AgendaThreeDayView
+#
 //= require src/twetzel/agenda/AgendaWeekView
 //= require src/twetzel/agenda/AgendaDayView
 //= require src/twetzel/agenda/AgendaView
@@ -41,11 +44,19 @@
 # => individual options for fullCalendar
 #
 options =
+	
+	monthHead: false
+	markAllDays: true
+	oneDayHead: false
+	speziTitleFormat:
+		week: "d.[ MMMM][ yyyy]{ - d. MMMM yyyy}"
+		day: "d.[ MMMM][ yyyy]{ - d. MMMM yyyy}"
+	
 	defaultView: 'resourceDay'
 	header:
 		left: 'prev,next today'
 		center: 'title'
-		right: 'month,agendaWeek,resourceDay'
+		right: 'month,agendaWeek,agendaWorkWeek,agendaThreeDay,agendaDay,resourceDay'
 		# right: 'month,agendaWeek,agendaWorkWeek,resourceWorkWeek,agendaDay,resourceDay'
 	# resources: [
 	# 	{ id: 1, name: 'Joe Bloggs', color: 'red', textColor: 'black' },

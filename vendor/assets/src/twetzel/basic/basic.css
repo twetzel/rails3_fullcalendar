@@ -5,15 +5,22 @@
 .fc-grid th {
 	text-align: center;
 	}
-	
+
+/*	
 .fc-grid .fc-day-number {
 	float: right;
 	padding: 0 2px;
+}
+*/
+.fc-grid .fc-other-month {
+	background: rgba(153,153,153,.35);
 	}
-	
+
 .fc-grid .fc-other-month .fc-day-number {
-	opacity: 0.3;
-	filter: alpha(opacity=30); /* for IE */
+	/*
+	opacity: 0.7;
+	filter: alpha(opacity=70); / for IE */
+	background: #fff;
 	/* opacity with small font can sometimes look too faded
 	   might want to set the 'color' property instead
 	   making day-numbers bold also fixes the problem */
@@ -41,3 +48,20 @@
 	}
 	
 	
+
+
+.fc-grid .fc-day-number {
+	background: rgba(153,153,153,.65);
+	padding: 0 5px;
+	text-align: right;
+	position: relative;
+}
+
+.fc-grid .fc-day-name {
+	display:block;
+	position: absolute;
+	left: 5px;
+	top:0;
+	font-weight: bold;
+}
+

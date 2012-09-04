@@ -1,0 +1,9 @@
+<table style='width:100%' class='fc-agenda-allday' cellspacing='0'>
+	<tr>
+		<th class='<%= @headerClass %> fc-agenda-axis'><%= @text %></th>
+		<td>
+			<div class='fc-day-content'><div style='position:relative'/></div>
+		</td>
+		<th class='<%= @headerClass %> fc-agenda-gutter'>&nbsp;</th>
+	</tr>
+</table>

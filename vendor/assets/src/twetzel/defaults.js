@@ -30,6 +30,10 @@ var defaults = {
 		week: "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}",
 		day: 'dddd, MMM d, yyyy'
 	},
+	speziTitleFormat: {
+		week: "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}",
+		day: "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
+	},
 	columnFormat: {
 		month: 'ddd',
 		week: 'ddd M/d',
@@ -55,7 +59,9 @@ var defaults = {
 		month: 'month',
 		week: 'week',
 		day: 'day',
-		resourceDay: 'resource'
+		resourceDay: 'r-day',
+		agendaWorkWeek: 'workweek',
+		agendaThreeDay: '3days'
 	},
 	
 	// jquery-ui theming

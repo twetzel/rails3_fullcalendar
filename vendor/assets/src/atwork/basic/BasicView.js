@@ -1,6 +1,8 @@
 
 setDefaults({
-	weekMode: 'fixed'
+	weekMode: 'fixed',
+	monthHead: true,
+	markAllDays: false
 });
 
 
@@ -122,7 +124,7 @@ function BasicView(element, calendar, viewName) {
 		var contentClass = tm + "-widget-content";
 		var i, j;
 		var table;
-		
+		/*
 		s =
 			"<table class='fc-border-separate' style='width:100%' cellspacing='0'>" +
 			"<thead>" +
@@ -158,6 +160,15 @@ function BasicView(element, calendar, viewName) {
 		s +=
 			"</tbody>" +
 			"</table>";
+		*/
+		s = JST["src/atwork/basic/views/basic_table"]({
+				"colCnt": colCnt,
+				"maxRowCnt": maxRowCnt,
+				"headerClass": headerClass,
+				"contentClass": contentClass,
+				"showNumbers": showNumbers,
+				"monthHead": opt('monthHead')
+			});
 		table = $(s).appendTo(element);
 		
 		head = table.find('thead');
@@ -190,10 +201,13 @@ function BasicView(element, calendar, viewName) {
 		var row;
 	
 		if (dowDirty) {
+			
 			headCells.each(function(i, _cell) {
 				cell = $(_cell);
 				date = indexDate(i);
-				cell.html(formatDate(date, colFormat));
+				if (opt('monthHead') == true) {
+					cell.html(formatDate(date, colFormat));
+				}
 				setDayID(cell, date);
 			});
 		}
@@ -212,6 +226,14 @@ function BasicView(element, calendar, viewName) {
 				cell.removeClass(tm + '-state-highlight fc-today');
 			}
 			cell.find('div.fc-day-number').text(date.getDate());
+			if ( opt('monthHead') != true ) {
+				if ( (cell.find('div.fc-day-number').attr("data-row") == 1) || (opt('markAllDays') == true) ) {
+					cell = $(_cell);
+					date = indexDate(i);
+					cell.find('div.fc-day-number')
+						.append('<div class="fc-day-name">'+formatDate(date, colFormat)+'</div>');
+				}
+			}
 			if (dowDirty) {
 				setDayID(cell, date);
 			}

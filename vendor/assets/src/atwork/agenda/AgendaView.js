@@ -13,7 +13,8 @@ setDefaults({
 		agenda: .5
 	},
 	minTime: 0,
-	maxTime: 24
+	maxTime: 24,
+	oneDayHead: true
 });
 
 
@@ -172,6 +173,7 @@ function AgendaView(element, calendar, viewName) {
 		var minutes;
 		var slotNormal = opt('slotMinutes') % 15 == 0;
 		
+		/*
 		s =
 			"<table style='width:100%' class='fc-agenda-days fc-border-separate' cellspacing='0'>" +
 			"<thead>" +
@@ -203,6 +205,15 @@ function AgendaView(element, calendar, viewName) {
 			"</tr>" +
 			"</tbody>" +
 			"</table>";
+		*/
+		
+		s = JST["src/atwork/agenda/views/agenda_table"]({
+				"colCnt": colCnt,
+				"headerClass": headerClass,
+				"contentClass": contentClass,
+				"oneDayHead": opt('oneDayHead')
+			});
+		
 		dayTable = $(s).appendTo(element);
 		dayHead = dayTable.find('thead');
 		dayHeadCells = dayHead.find('th').slice(1, -1);
@@ -228,6 +239,7 @@ function AgendaView(element, calendar, viewName) {
 				$("<div style='position:absolute;z-index:8;top:0;left:0'/>")
 					.appendTo(slotLayer);
 		
+			/*
 			s =
 				"<table style='width:100%' class='fc-agenda-allday' cellspacing='0'>" +
 				"<tr>" +
@@ -238,6 +250,12 @@ function AgendaView(element, calendar, viewName) {
 				"<th class='" + headerClass + " fc-agenda-gutter'>&nbsp;</th>" +
 				"</tr>" +
 				"</table>";
+			*/
+			s = JST["src/atwork/agenda/views/agenda_allday"]({
+				"text": opt('allDayText'),
+				"headerClass": headerClass
+			});
+			
 			allDayTable = $(s).appendTo(slotLayer);
 			allDayRow = allDayTable.find('tr');
 			
@@ -313,13 +331,19 @@ function AgendaView(element, calendar, viewName) {
 		for (i=0; i<colCnt; i++) {
 			date = colDate(i);
 			headCell = dayHeadCells.eq(i);
-			headCell.html(formatDate(date, colFormat));
+			if ( (colCnt > 1) || (opt('oneDayHead') == true) ) {
+				headCell.html(formatDate(date, colFormat));
+			}
 			bodyCell = dayBodyCells.eq(i);
 			if (+date == +today) {
-				headCell.addClass('fc-today');
+				if ( (colCnt > 1) || (opt('oneDayHead') == true) ) {
+					headCell.addClass('fc-today');
+				}
 				bodyCell.addClass(tm + '-state-highlight fc-today');
 			}else{
-				headCell.removeClass('fc-today');
+				if ( (colCnt > 1) || (opt('oneDayHead') == true) ) {
+					headCell.removeClass('fc-today');
+				}
 				bodyCell.removeClass(tm + '-state-highlight fc-today');
 			}
 			setDayID(headCell.add(bodyCell), date);

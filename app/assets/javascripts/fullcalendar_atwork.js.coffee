@@ -11,14 +11,20 @@
 //= require src/atwork/basic/BasicDayView
 //= require src/atwork/basic/BasicView
 //= require src/atwork/basic/BasicEventRenderer
+//= require src/atwork/basic/views/basic_table
 #
 //= require src/atwork/agenda/AgendaWorkWeekView
+//= require src/atwork/agenda/AgendaThreeDayView
+#
 //= require src/atwork/agenda/AgendaWeekView
 //= require src/atwork/agenda/AgendaDayView
 //= require src/atwork/agenda/AgendaView
 //= require src/atwork/agenda/AgendaEventRenderer
+//= require src/atwork/agenda/views/agenda_table
+//= require src/atwork/agenda/views/agenda_allday
 #
 //= require src/atwork/resources/ResourceWorkWeekView
+#
 //= require src/atwork/resources/ResourceDayView
 //= require src/atwork/resources/ResourceView
 //= require src/atwork/resources/ResourceList
@@ -43,12 +49,20 @@
 # => individual options for fullCalendar
 #
 options =
+	
+	monthHead: false
+	markAllDays: false
+	oneDayHead: false
+	speziTitleFormat:
+		week: "d.[ MMMM][ yyyy]{ - d. MMMM yyyy}"
+		day: "d.[ MMMM][ yyyy]{ - d. MMMM yyyy}"
+	
 	defaultView: 'resourceDay'
 	header:
 		left: 'prev,next today'
 		center: 'title'
-		right: 'month,agendaWeek,agendaWorkWeek,resourceWorkWeek,resourceDay'
-		# right: 'month,agendaWeek,agendaWorkWeek,resourceWorkWeek,agendaDay,resourceDay'
+		right: 'month,agendaWeek,agendaWorkWeek,agendaThreeDay,agendaDay,resourceDay,resourceWorkWeek'
+		# right: 'month,agendaWeek,agendaWorkWeek,agendaThreeDay,resourceWorkWeek,agendaDay,resourceDay'
 	# resources: [
 	# 	{ id: 1, name: 'Joe Bloggs', color: 'red', textColor: 'black' },
 	# 	{ id: 2, name: 'Alan Black', color: 'blue' },
